@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
-const config = require("./auth.json");
+var config = require("./auth.json");
+
 const client = new Discord.Client();
-client.login(config.BOT_TOKEN);
+config = new Buffer.from(config.BOT_TOKEN, "base64").toString("ascii")
+client.login(config);
 
 
 const RAs = require("./ras.json");
